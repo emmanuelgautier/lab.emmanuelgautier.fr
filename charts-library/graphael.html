@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>gRaphaël</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/googlecode.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">Librairies Graphiques</a>
+					<p class="navbar-text"> par <a href="http://emmanuelgautier.fr">Emmanuel Gautier</a></p>
+				</div>
+			</div>
+		</nav>
+		<div class="container" id="container">
+			<ol class="breadcrumb">
+				<li><a href="index.html">Accueil</a></li>
+				<li class="active">gRaphaël</li>
+			</ol>
+
+			<div class="row">
+				<h1>gRaphaël</h1>
+				<div id="example" style="display: block"></div>
+				<br /><br />
+				<h2>Code</h2>
+				<pre><code>
+var chart = new Raphael("example"),
+	lines = chart.linechart(0, 0, width, height, [[1, 2, 3, 4, 5, 6, 7],[3.5, 4.5, 5.5, 6.5, 7, 8]], [[12, 32, 23, 15, 17, 27, 22], [10, 20, 30, 25, 15, 28]], { nostroke: false, axis: "0 0 1 1", symbol: "circle", smooth: true }).hoverColumn(function () {
+		this.tags = chart.set();
+
+		for (var i = 0, ii = this.y.length; i < ii; i++) {
+			this.tags.push(chart.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+		}
+	}, function () {
+		this.tags && this.tags.remove();
+	});
+
+	lines.symbols.attr({ r: 6 });
+				</code></pre>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/raphael.js"></script>
+	<script type="text/javascript" src="js/g.raphael.js"></script>
+	<script type="text/javascript" src="js/g.line.js"></script>
+	<script type="text/javascript" src="js/highlight.pack.js"></script>
+	<script defer>
+		var container = document.getElementById("container"),
+			chart = document.getElementById("example");
+			chart.style.width = container.offsetWidth / 2 + "px";
+			chart.style.height = container.offsetWidth / 3 + "px";
+
+		var width = container.offsetWidth / 2 - 25,
+			height = container.offsetWidth / 3 - 25;
+
+		var chart = new Raphael("example"),
+			lines = chart.linechart(0, 0, width, height, [[1, 2, 3, 4, 5, 6, 7],[3.5, 4.5, 5.5, 6.5, 7, 8]], [[12, 32, 23, 15, 17, 27, 22], [10, 20, 30, 25, 15, 28]], { nostroke: false, axis: "0 0 1 1", symbol: "circle", smooth: true }).hoverColumn(function () {
+				this.tags = chart.set();
+
+				for (var i = 0, ii = this.y.length; i < ii; i++) {
+					this.tags.push(chart.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+				}
+			}, function () {
+				this.tags && this.tags.remove();
+			});
+
+			lines.symbols.attr({ r: 6 });
+
+			hljs.initHighlightingOnLoad();
+	</script>
+</html>

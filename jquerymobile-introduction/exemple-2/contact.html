@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="tp2.js" defer="defer"></script>
+		<title>Contact</title>
+	</head>
+	<body>
+		<div data-role="page" id="presentation">
+		<header data-role="header" style="overflow:hidden;">
+		    <h1>Nom Prénom</h1>
+		    <nav data-role="navbar" class="navbar">
+		        <ul>
+		            <li><a href="view.html">Général</a></li>
+		            <li><a href="biography.html">Biographie</a></li>
+		            <li><a href="professional.html">Professionnel</a></li>
+		            <li><a href="contact.html">Contact</a></li>
+		        </ul>
+		    </nav>
+		</header>
+		  	<div data-role="content">
+				<form action="#" method="post">
+					<label for="name" >Nom : </label><input type="text" name="name" />
+					<label for="mail">Mail : </label><input type="email" name="mail" />
+					<fieldset data-role="controlgroup" data-type="horizontal" >
+			         	<input type="radio" name="radio-view" id="radio-view-a" value="pro" checked="checked" />
+			         	<label for="radio-view-a">Professionel</label>
+			         	<input type="radio" name="radio-view" id="radio-view-b" value="notpro"  />
+			         	<label for="radio-view-b">Particulier</label>
+					</fieldset>
+					<label for="company_name">Nom de l'entreprise : </label><input type="text" name="company_name" />
+					<label for="subject">Sujet : </label><input type="text" name="subject" />
+					<label for="message">Message :</label><textarea name="message"></textarea>
+					<input type="submit" value="envoyer" />
+				</form> 
+		  	</div> 
+		</div>	
+	</body>
+</html>
